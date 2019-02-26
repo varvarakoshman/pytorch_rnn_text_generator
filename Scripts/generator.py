@@ -17,7 +17,7 @@ sentence_end = "END"
 
 
 def preprocessing():
-    data = open('test2.txt', 'r', encoding="utf-8-sig")
+    data = open('data/test2.txt', 'r', encoding="utf-8-sig")
     lines = data.read()
     data.close()
     all_sentences = [sent for sent in nltk.sent_tokenize(lines)]
@@ -47,7 +47,7 @@ def preprocessing():
     X_train = np.asarray([[word_to_index[word] for word in sent[:-1]] for sent in all_tokens])
     y_train = np.asarray([[word_to_index[w] for w in sent[1:]] for sent in all_tokens])
 
-    f = open('X_train.txt', 'w')
+    f = open('data/X_train.txt', 'w')
     for sent in X_train:
         f.write(str(sent) + '\n')
 
